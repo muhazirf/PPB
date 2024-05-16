@@ -25,9 +25,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
 
     var email by remember {
         mutableStateOf("")
@@ -73,16 +74,19 @@ fun LoginScreen() {
         //Submit Btn
         Spacer(modifier = Modifier.height(16.dp))
         Button(
-            onClick = { Log.i("Credential", "Email : $email Password : $password") },
+            onClick = {
+                Log.i("Credential", "Email : $email Password : $password")
+                navController.navigate("dashboard")
+            },
             colors = ButtonDefaults.buttonColors(Color(0xFFf1c40f))
         ) {
             Text(text = "Login",color = Color.White)
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
         TextButton(onClick = { /*TODO*/ }) {
             Text(text = "Forgot Password",color = Color.White)
         }
+        Spacer(modifier = Modifier.height(100.dp))
 
     }
 }

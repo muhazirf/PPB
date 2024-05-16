@@ -56,7 +56,7 @@ fun BottomNavigationBar() {
             navController = navController,
             startDestination = Screen.Login.rout,
             modifier = Modifier.padding(paddingValues = paddingValues)) {
-            composable(Screen.Login.rout) { LoginScreen() }
+            composable(Screen.Login.rout) { LoginScreen(navController = navController) }
             composable(Screen.Dashboard.rout) { DashboardScreen(navController = navController) }
             composable(Screen.News.rout) { NewsFeedScreen(navController = navController) }
             composable(Screen.Jadwal.rout) { JadwalScreen(navController = navController) }
