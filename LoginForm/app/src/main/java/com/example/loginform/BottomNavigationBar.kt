@@ -24,42 +24,43 @@ fun BottomNavigationBar() {
     val currentDestination = navBackStackEntry?.destination
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        bottomBar = {
-            NavigationBar {
-                BottomNavigationItem().bottomNavigationItems().forEachIndexed { _, navigationItem ->
-                    NavigationBarItem(
-                        selected = navigationItem.route == currentDestination?.route,
-                        label = {
-                            Text(navigationItem.label)
-                        },
-                        icon = {
-                            Icon(
-                                navigationItem.icon,
-                                contentDescription = navigationItem.label
-                            )
-                        },
-                        onClick = {
-                            navController.navigate(navigationItem.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
-                                }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        }
-                    )
-                }
-            }
-        }
+//        bottomBar = {
+//            NavigationBar {
+//                BottomNavigationItem().bottomNavigationItems().forEachIndexed { _, navigationItem ->
+//
+//                    NavigationBarItem(
+//                        selected = navigationItem.route == currentDestination?.route,
+//                        label = {
+//                            Text(navigationItem.label)
+//                        },
+//                        icon = {
+//                            Icon(
+//                                navigationItem.icon,
+//                                contentDescription = navigationItem.label
+//                            )
+//                        },
+//                        onClick = {
+//                            navController.navigate(navigationItem.route) {
+//                                popUpTo(navController.graph.findStartDestination().id) {
+//                                    saveState = true
+//                                }
+//                                launchSingleTop = true
+//                                restoreState = true
+//                            }
+//                        }
+//                    )
+//                }
+//            }
+//        }
     ) {paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screen.Login.rout,
+            startDestination = Screen.Dashboard.rout,
             modifier = Modifier.padding(paddingValues = paddingValues)) {
             composable(Screen.Login.rout) { LoginScreen(navController = navController) }
             composable(Screen.Dashboard.rout) { DashboardScreen(navController = navController) }
             composable(Screen.News.rout) { NewsFeedScreen(navController = navController) }
-            composable(Screen.Jadwal.rout) { JadwalScreen(navController = navController) }
+            composable(Screen.PointKu.rout) { PointKuScreen(navController = navController) }
             composable(Screen.Profile.rout) { ProfileScreen(navController = navController) }
 
         }

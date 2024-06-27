@@ -30,7 +30,7 @@ data class BottomNavigationItem(
             BottomNavigationItem(
                 label = "Jadwal",
                 icon = Icons.Filled.DateRange,
-                route = Screen.Jadwal.rout
+                route = Screen.PointKu.rout
             ),
             BottomNavigationItem(
                 label = "Profile",
